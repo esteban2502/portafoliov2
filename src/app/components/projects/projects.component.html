@@ -1,0 +1,27 @@
+<section id="projects" class="projects">
+  <div class="container">
+    <h2>Proyectos</h2>
+    <div class="projects-grid">
+      <div class="project-card card" *ngFor="let project of projects">
+        <div class="project-header">
+          <h3>{{ project.title }}</h3>
+        </div>
+        <p class="project-description">{{ project.description }}</p>
+        <div class="project-tech">
+          <span class="tech-tag" *ngFor="let tech of project.technologies">{{ tech }}</span>
+        </div>
+        <div class="project-links">
+          <a *ngIf="project.linkedin" [href]="project.linkedin" target="_blank" class="project-link project-link-linkedin">
+            <svg class="project-link-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path>
+              <rect x="2" y="9" width="4" height="12"></rect>
+              <circle cx="4" cy="4" r="2"></circle>
+            </svg>
+            <span>LinkedIn</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+

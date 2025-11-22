@@ -1,0 +1,187 @@
+.projects {
+  background: var(--bg-primary);
+  position: relative;
+}
+
+/* Japanese decorative line */
+.projects::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 10%;
+  width: 1px;
+  height: 100px;
+  background: linear-gradient(180deg, var(--purple-primary), transparent);
+  opacity: 0.15;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2.5rem;
+}
+
+.project-card {
+  display: flex;
+  flex-direction: column;
+  min-height: 360px;
+  position: relative;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card:hover {
+  transform: translateY(-2px);
+}
+
+.project-header {
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+  position: relative;
+}
+
+.project-header::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 50px;
+  height: 1px;
+  background: var(--purple-primary);
+  opacity: 0.3;
+  transition: width 0.3s ease;
+}
+
+.project-card:hover .project-header::after {
+  width: 80px;
+  opacity: 0.5;
+}
+
+.project-header h3 {
+  font-size: clamp(1.4rem, 2vw, 1.9rem);
+  color: var(--text-primary);
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 600;
+  margin: 0;
+  letter-spacing: -0.02em;
+  line-height: 1.3;
+  transition: color 0.3s ease;
+}
+
+.project-card:hover .project-header h3 {
+  color: var(--purple-primary);
+}
+
+.project-description {
+  color: var(--text-secondary);
+  line-height: 1.85;
+  margin-bottom: 1.5rem;
+  flex: 1;
+  font-size: clamp(0.95rem, 1.1vw, 1.05rem);
+  font-weight: 400;
+  letter-spacing: -0.01em;
+}
+
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.7rem;
+  margin-bottom: 1.5rem;
+  padding-bottom: 1.5rem;
+  border-bottom: 1px solid var(--border-subtle);
+}
+
+.tech-tag {
+  padding: 0.4rem 0.9rem;
+  background: var(--bg-secondary);
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  font-size: 0.8rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.01em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.tech-tag:hover {
+  border-color: var(--purple-primary);
+  color: var(--purple-primary);
+  transform: translateY(-1px);
+}
+
+.project-links {
+  display: flex;
+  gap: 0.8rem;
+  flex-wrap: wrap;
+  margin-top: auto;
+}
+
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.5rem 1rem;
+  background: transparent;
+  border: 1px solid var(--border-subtle);
+  color: var(--text-secondary);
+  text-decoration: none;
+  font-size: 0.85rem;
+  font-family: 'Inter', sans-serif;
+  font-weight: 400;
+  letter-spacing: 0.02em;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  white-space: nowrap;
+  position: relative;
+  overflow: hidden;
+  flex-shrink: 0;
+}
+
+.project-link-icon {
+  width: 16px;
+  height: 16px;
+  stroke: currentColor;
+  transition: transform 0.3s ease;
+  flex-shrink: 0;
+}
+
+.project-link::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: var(--purple-primary);
+  transition: left 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: -1;
+}
+
+.project-link:hover::before {
+  left: 0;
+}
+
+.project-link:hover {
+  color: var(--bg-primary);
+  border-color: var(--purple-primary);
+}
+
+.project-link:hover .project-link-icon {
+  transform: scale(1.1);
+}
+
+@media (max-width: 768px) {
+  .projects-grid {
+    grid-template-columns: 1fr;
+    gap: 2rem;
+  }
+
+  .project-links {
+    width: 100%;
+  }
+
+  .project-link {
+    flex: 1;
+    text-align: center;
+    min-width: 120px;
+  }
+}
